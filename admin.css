@@ -1,0 +1,32 @@
+
+#container{
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    font-size: medium;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.tag{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 10px;
+    color: #b4dbdc;
+}
+.tag1{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px ;
+    margin-right: 50px;
+    margin-left: 100px;
+    border-radius: 5px;
+    color: #b4dbdc;
+}
+body{
+    background-color:white;
+}
