@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holding Information</title>
-    <link rel="stylesheet" href="Holding.css">
+    <title>Watchlist</title>
+    <link rel="stylesheet" href="userpage.css">
+
 </head>
 <body>
-    <div class="holding-info">
     <header>
     <div id = "container">
     <h3 class="name">Portfolio Management</h3>
+    <a href = "addholding.php" class = "tag">ADD HOLDINGS</a>
+    </header>
+    <?php 
+session_start();
 
-    </div>
-    </header><br>
-
-    <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -30,11 +29,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to select data from the holding table
-$sql = "SELECT * FROM holding";
+// SQL query to select data from the portfolio table
+$sql = "SELECT * FROM holding WHERE holding_Id IN (SELECT Holding_ID FROM watchlist WHERE ID = '" . $_SESSION['Pan_no'] . "')";
+
+
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    // Output data of each row
     while ($row = $result->fetch_assoc()) {
         echo "ID: " . $row["holding_Id"] . "<br>";
         echo "Name: " . $row["holding_name"] . "<br>";
@@ -60,17 +63,14 @@ if ($result->num_rows > 0) {
             }
         }
 
-        echo "<hr>";
+        echo "<hr>"; // Separating each holding's information
     }
 } else {
-    echo "0 results";
+    echo "No Holdings Watchlisted";
 }
 
 $conn->close();
 ?>
-    <a href = "addtoportfolio.php" class = "tag1">Add Holding</a>
-
-
-    </div>
+    
 </body>
 </html>

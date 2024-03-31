@@ -1,0 +1,43 @@
+/* CSS for holding information page */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.holding-info {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Holding information styles */
+.holding-info {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Individual holding styles */
+.holding-info hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .holding-info {
+        max-width: 90%;
+    }
+}

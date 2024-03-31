@@ -5,27 +5,27 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; 
-    color: #333; 
+    background-color: #ffffff; /* Dark background color */
+    color: #333; /* White text color */
 }
 
 /* Header styles */
 header {
-    background-color: #333; 
-    color: #fff; 
-    padding: 10px 0; 
+    background-color: #333; /* Darker background color for header */
+    color: #fff; /* White text color */
+    padding: 10px 0; /* Padding for header content */
 }
 
 #container {
-    width: 80%; 
-    margin: 0 auto; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
+    width: 80%; /* Centered container with 80% width */
+    margin: 0 auto; /* Center the container horizontally */
+    display: flex; /* Flexbox layout for header links */
+    justify-content: space-between; /* Spacing between header links */
+    align-items: center; /* Center items vertically */
 }
 
 h3.name {
-    margin: 0; 
+    margin: 0; /* Remove margin for the portfolio name */
 }
 
 .tag,
@@ -36,19 +36,9 @@ h3.name {
     border-radius: 5px; /* Rounded corners for header links */
     transition: background-color 0.3s ease; /* Smooth transition effect */
 }
-.tag2 {
-    color: #fff;
-    text-decoration: none;
-    background-color: #28a745;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-left:  425px;
-}
+
 .tag:hover,
 .tag1:hover {
-    background-color: #444; /* Darker background color on hover */
-}
-.tag2:hover {
     background-color: #444; /* Darker background color on hover */
 }
 
@@ -66,8 +56,6 @@ h3.name {
     margin-top: 0; /* Remove top margin for headings */
     font-size: 24px; /* Font size for headings */
     color: #333; /* Text color for headings */
-    display: inline;
-
 }
 
 .Portfolio-info hr {

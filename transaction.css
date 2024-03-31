@@ -52,26 +52,4 @@ h3.name {
     background-color: #444; /* Darker background color on hover */
 }
 
-/* Portfolio info styles */
-.Portfolio-info {
-    width: 80%; /* Width of the portfolio info container */
-    margin: 20px auto; /* Center the container horizontally */
-    background-color: #fff; /* White background color */
-    padding: 20px; /* Padding for the portfolio info */
-    border-radius: 5px; /* Rounded corners for the portfolio info */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-}
 
-.Portfolio-info h2 {
-    margin-top: 0; /* Remove top margin for headings */
-    font-size: 24px; /* Font size for headings */
-    color: #333; /* Text color for headings */
-    display: inline;
-
-}
-
-.Portfolio-info hr {
-    border: 0; /* Remove default border */
-    border-top: 1px solid #ccc; /* Top border style */
-    margin: 10px 0; /* Margin for separating lines */
-}
