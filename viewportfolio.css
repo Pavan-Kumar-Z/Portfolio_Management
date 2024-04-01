@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; 
+    color: #333; 
+}
+
+/* Header styles */
+header {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 0; 
+}
+
+#container {
+    width: 80%; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+h3.name {
+    margin: 0; 
+}
+.tag {
+    color: #fff; /* White text color for header links */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 15px; /* Padding for header links */
+    border-radius: 5px; /* Rounded corners for header links */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.tag:hover {
+    background-color: #444; /* Darker background color on hover */
+}
+
+.portfolio-info {
+    border: 1px solid #333;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.portfolio-info .holding-info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #333;
+}
+
+.portfolio-info .holding-info h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.portfolio-info .holding-info p {
+    margin: 0;
+}
+
+.portfolio-info hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}

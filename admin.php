@@ -13,7 +13,7 @@
     <div id = "container">
     <h3 class="name">Portfolio Management</h3>
     <a href = "addstock.php" class = "tag">ADD STOCK</a>
-    <a href = "addstock.php" class = "tag">INFO</a>
+    <a href = "Info.php" class = "tag">INFO</a>
     <a href = "view.php" class = "tag">VIEW</a>
     <a href = "page.php" class = "tag">LOGOUT</a>
     </div>

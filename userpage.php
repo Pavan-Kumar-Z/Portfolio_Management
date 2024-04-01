@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="userpage.css">
+    <link rel="stylesheet" href="userpages.css">
     <title>UserPages</title>
 </head>
 <body>
@@ -46,8 +46,9 @@ if ($result->num_rows > 0) {
         echo "Name: " . $row["Portfolio_name"] . "<br>";
         //$_SESSION['portfolio_id'] = $row["Portfolio_Id"] ;
         echo "ID: " . $row["Portfolio_Id"] . "<br>";
+        echo "<a href='addtoportfolio.php?portfolio_id=" . $row["Portfolio_Id"] . "' class='tag2'>Add Holding</a>";
+        echo "<a href='viewportfolio.php?portfolio_id=" . $row["Portfolio_Id"] . "' class='tag3'>View Portfolio</a>";
         echo "<hr>"; // Separating each portfolio's information
-        echo "<a href='addtoportfolio.php?portfolio_id=" . $row["Portfolio_Id"] . "' class='tag2'>Add Holding</a><hr>";
 
     }
 } else {

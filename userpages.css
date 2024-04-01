@@ -42,13 +42,29 @@ h3.name {
     background-color: #28a745;
     padding: 5px 10px;
     border-radius: 5px;
-    margin-left:  425px;
+    margin-left:  100px;
 }
 .tag:hover,
 .tag1:hover {
     background-color: #444; /* Darker background color on hover */
 }
 .tag2:hover {
+    background-color: #444; /* Darker background color on hover */
+}
+
+.tag3 {
+    color: #fff;
+    text-decoration: none;
+    background-color: #28a745;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left:  400px;
+}
+.tag:hover,
+.tag3:hover {
+    background-color: #444; /* Darker background color on hover */
+}
+.tag3:hover {
     background-color: #444; /* Darker background color on hover */
 }
 
