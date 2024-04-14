@@ -18,23 +18,19 @@
 session_start();
 
     
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "portfolio_db";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 $portfolio_id = $_GET['portfolio_id'];
 
-// SQL query to select data from the holding table
 $sql = "SELECT * FROM holdingportfolio WHERE ID = '{$_SESSION['Pan_no']}' AND Portfolio_Id = $portfolio_id";
 
 
@@ -47,9 +43,9 @@ if ($result->num_rows > 0) {
         $result1 = $conn->query($sql1);
         if ($result1->num_rows > 0) {
             while ($row1 = $result1->fetch_assoc()) {
-                echo "ID: " . $row1["holding_Id"] . "<br>";
-                echo "Name: " . $row1["holding_name"] . "<br>";
-                echo "Type: " . $row1["holding_type"] . "<br>";
+                echo "" . $row1["holding_Id"] . "<br>";
+                echo "" . $row1["holding_name"] . "<br>";
+                echo "" . $row1["holding_type"] . "<br>";
                 echo "Highest Price: " . $row1["highest"] . "<br>";
                 if ($row1["holding_type"] == "stock") {
                     $stock_sql = "SELECT * FROM stock WHERE ID = '" . $row1["holding_Id"] . "'";
@@ -72,10 +68,10 @@ if ($result->num_rows > 0) {
             
         }
         
-        echo "<hr>"; // Separating each holding's information
+        echo "<hr>"; 
     }
 } else {
-    echo "0 results";
+    echo "No results";
 }
 
 // Close connection

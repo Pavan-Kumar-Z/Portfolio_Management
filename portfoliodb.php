@@ -15,7 +15,6 @@ $name = $_POST['name'];
 $portfolio_id = $_POST['id'];
 $ID = $_SESSION['Pan_no'];
 
-// Use prepared statements to avoid SQL injection and properly quote string values
 $sql = "INSERT INTO portfolio (Portfolio_Id, ID, Portfolio_name) VALUES (?, ?, ?)";
 
 $stmt = $conn->prepare($sql);

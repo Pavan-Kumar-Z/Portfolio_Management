@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Transaction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
 <?php
@@ -25,30 +27,38 @@ $quantity = $_GET['quantity'];
 
 $ID = $_SESSION['Pan_no'];
 
-// Use prepared statements to avoid SQL injection and properly quote string values
 
-// SQL query to insert data into the holdingportfolio table
 $sql = "INSERT INTO `holdingportfolio`(`quantity`, `ID`, `Holding_Id`, `Portfolio_Id`) VALUES ('$quantity','$ID','$holding_id','$portfolio_id')";
 
-// SQL query to insert data into the transactions table
 $date = date("Y-m-d H:i:s");
-$sql2 = "INSERT INTO `transactions`(`quantity`, `Buysell`, `ID`, `Holding_Id`, `Portfolio_Id`, `dates`) VALUES ('$quantity','BUY','$ID','$holding_id','$portfolio_id','$date')";
 
-// Execute the queries
 $result1 = $conn->query($sql);
-$result2 = $conn->query($sql2);
 
-// Check if the queries were successful
-if ($result1 === TRUE && $result2 === TRUE) {
+if ($result1 === TRUE) {
     echo "<script>";
-    echo "alert('Added successfully');";
+    echo "$.ajax({
+            url: 'generate_transaction_id.js',
+            dataType: 'script',
+            success: function(data) {
+                var transaction_id = generateTransactionId();
+                $.ajax({
+                    type: 'GET',
+                    url: 'insert_transaction.php', // PHP script to handle insertion into transactions table
+                    data: { transaction_id: transaction_id, quantity: '$quantity', ID: '$ID', holding_id: '$holding_id', portfolio_id: '$portfolio_id', date: '$date' },
+                    success: function(response) {
+                        alert(response); // Display success or error message
+                    }
+                });
+            }
+        });";
     echo "</script>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
 $conn->close();
 ?>
+
+
 </body>
 </html>

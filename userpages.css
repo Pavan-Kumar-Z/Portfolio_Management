@@ -1,6 +1,4 @@
-/* userpage.css */
 
-/* Body styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -30,11 +28,11 @@ h3.name {
 
 .tag,
 .tag1 {
-    color: #fff; /* White text color for header links */
-    text-decoration: none; /* Remove underline from links */
-    padding: 10px 15px; /* Padding for header links */
-    border-radius: 5px; /* Rounded corners for header links */
-    transition: background-color 0.3s ease; /* Smooth transition effect */
+    color: #fff; 
+    text-decoration: none; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
 }
 .tag2 {
     color: #fff;
@@ -46,10 +44,10 @@ h3.name {
 }
 .tag:hover,
 .tag1:hover {
-    background-color: #444; /* Darker background color on hover */
+    background-color: #444; 
 }
 .tag2:hover {
-    background-color: #444; /* Darker background color on hover */
+    background-color: #444; 
 }
 
 .tag3 {
@@ -62,32 +60,31 @@ h3.name {
 }
 .tag:hover,
 .tag3:hover {
-    background-color: #444; /* Darker background color on hover */
+    background-color: #444; 
 }
 .tag3:hover {
-    background-color: #444; /* Darker background color on hover */
+    background-color: #444; 
 }
 
-/* Portfolio info styles */
 .Portfolio-info {
-    width: 80%; /* Width of the portfolio info container */
-    margin: 20px auto; /* Center the container horizontally */
-    background-color: #fff; /* White background color */
-    padding: 20px; /* Padding for the portfolio info */
-    border-radius: 5px; /* Rounded corners for the portfolio info */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    width: 80%; 
+    margin: 20px auto; 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .Portfolio-info h2 {
-    margin-top: 0; /* Remove top margin for headings */
-    font-size: 24px; /* Font size for headings */
-    color: #333; /* Text color for headings */
+    margin-top: 0; 
+    font-size: 24px; 
+    color: #333; 
     display: inline;
 
 }
 
 .Portfolio-info hr {
-    border: 0; /* Remove default border */
-    border-top: 1px solid #ccc; /* Top border style */
-    margin: 10px 0; /* Margin for separating lines */
+    border: 0; 
+    border-top: 1px solid #ccc; 
+    margin: 10px 0; 
 }

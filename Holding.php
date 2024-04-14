@@ -16,32 +16,27 @@
     </header><br>
 
     <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "portfolio_db";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to select data from the holding table
 $sql = "SELECT * FROM holding";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo "ID: " . $row["holding_Id"] . "<br>";
-        echo "Name: " . $row["holding_name"] . "<br>";
-        echo "Type: " . $row["holding_type"] . "<br>";
+        echo "" . $row["holding_Id"] . "<br>";
+        echo "" . $row["holding_name"] . "<br>";
+        echo "" . $row["holding_type"] . "<br>";
         echo "Highest Price: " . $row["highest"] . "<br>";
 
-        // Determine the type of holding and fetch additional information accordingly
         if ($row["holding_type"] == "stock") {
             $stock_sql = "SELECT * FROM stock WHERE ID = '" . $row["holding_Id"] . "'";
             $stock_result = $conn->query($stock_sql);
@@ -63,7 +58,7 @@ if ($result->num_rows > 0) {
         echo "<hr>";
     }
 } else {
-    echo "0 results";
+    echo "No results";
 }
 
 $conn->close();

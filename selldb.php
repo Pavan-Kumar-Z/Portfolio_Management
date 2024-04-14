@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SELL</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
 <?php
@@ -25,30 +27,38 @@ $quantity = $_GET['quantity'];
 
 $ID = $_SESSION['Pan_no'];
 
-$date = date("Y-m-d H:i:s");
-$sql2 = "INSERT INTO `transactions`(`quantity`, `Buysell`, `ID`, `Holding_Id`, `Portfolio_Id`, `dates`) VALUES ('$quantity','SELL','$ID','$holding_id','$portfolio_id','$date')";
-
-$result1 = $conn->query($sql2);
 $stmt = $conn->prepare("UPDATE holdingportfolio SET quantity = quantity - ? WHERE ID = ? AND Holding_Id = ? AND Portfolio_Id = ?");
 $stmt->bind_param("iiii", $input_quantity, $user_id, $holding_id, $portfolio_id);
 
-// Set parameters and execute
-$input_quantity = $quantity/* Quantity input by user */;
-$user_id = $ID/* User ID */;
-$holding_id =  $holding_id/* Holding ID */;
-$portfolio_id = $portfolio_id/* Portfolio ID */;
+$input_quantity = $quantity; 
+$user_id = $ID; 
 
 $stmt->execute();
 
 $stmt->close();
-if ($result1 === TRUE  && $stmt->execute()) {
+
+$date = date("Y-m-d H:i:s");
+
+
     echo "<script>";
-    echo "alert('Added successfully');";
+    echo "$.ajax({
+            url: 'generate_transaction_id.js',
+            dataType: 'script',
+            success: function(data) {
+                var transaction_id = generateTransactionId();
+                $.ajax({
+                    type: 'GET',
+                    url: 'insert_transactions.php', // PHP script to handle insertion into transactions table
+                    data: { transaction_id: transaction_id, quantity: '$quantity', ID: '$ID', holding_id: '$holding_id', portfolio_id: '$portfolio_id', date: '$date' },
+                    success: function(response) {
+                        alert(response); // Display success or error message
+                    }
+                });
+            }
+        });";
     echo "</script>";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
-}
+
+
 
 $conn->close();
 ?>

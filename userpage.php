@@ -28,31 +28,25 @@ $username = "root";
 $password = "";
 $database = "portfolio_db";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to select data from the portfolio table
 $sql = "SELECT * FROM portfolio WHERE ID = '" . $_SESSION['Pan_no'] . "'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Output data of each row
     while ($row = $result->fetch_assoc()) {
         echo "Name: " . $row["Portfolio_name"] . "<br>";
-        //$_SESSION['portfolio_id'] = $row["Portfolio_Id"] ;
         echo "ID: " . $row["Portfolio_Id"] . "<br>";
         echo "<a href='addtoportfolio.php?portfolio_id=" . $row["Portfolio_Id"] . "' class='tag2'>Add Holding</a>";
         echo "<a href='viewportfolio.php?portfolio_id=" . $row["Portfolio_Id"] . "' class='tag3'>View Portfolio</a>";
-        echo "<hr>"; // Separating each portfolio's information
-
+        echo "<hr>"; 
     }
 } else {
-    echo "0 results";
+    echo "No results";
 }
 $conn->close();
 ?>

@@ -1,23 +1,18 @@
 <?php
 session_start();
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database connection
     $servername = "localhost";
     $username = "root";
     $password = "";
     $database = "portfolio_db";
 
-    // Create connection
     $conn = new mysqli($servername, $username, $password, $database);
 
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Prepare data for insertion
     $type = $_POST['type'];
     $id = $_POST['id'];
     $name = $_POST['name'];
@@ -27,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $premium_price = isset($_POST['premium_price']) ? $_POST['premium_price'] : null;
     $expiry_date = isset($_POST['expiry_date']) ? $_POST['expiry_date'] : null;
 
-    // SQL query to insert data into the database
     $sql = "INSERT INTO holding (holding_Id, holding_name, holding_type, highest)
             VALUES ('$id', '$name', '$type', '$highest_price')";
 
